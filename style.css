@@ -28,6 +28,8 @@ h2.section-title{font-family:var(--serif);font-weight:700;font-size:1.35rem;lett
 
 /* HERO */
 .hero{padding-top:4rem;padding-bottom:2.5rem;display:grid;grid-template-columns:1fr;gap:2rem}
+.hero-top{display:flex;gap:2rem;align-items:flex-start}
+.hero-photo{width:180px;height:180px;border-radius:12px;object-fit:cover;object-position:center top;flex-shrink:0;border:3px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.08)}
 .hero-text h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.75rem);font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:.35rem}
 .hero-text .subtitle{font-size:1.05rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.5}
 .hero-text .subtitle a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
@@ -121,7 +123,10 @@ footer{max-width:var(--max-w);margin:0 auto;padding:2rem var(--side-pad) 3rem;fo
 @media(max-width:600px){
   html{font-size:16px}nav ul{gap:0}nav a{padding:.3rem .45rem;font-size:.76rem}
   .thrust-grid{grid-template-columns:1fr}.highlights{grid-template-columns:repeat(2,1fr)}
-  .hero{padding-top:2.5rem}.venue-cell{width:70px}
+  .hero{padding-top:2.5rem}
+  .hero-top{flex-direction:column;align-items:center;text-align:center}
+  .hero-photo{width:140px;height:140px}
+  .hero-links{justify-content:center}.venue-cell{width:70px}
   .alumni-table th:nth-child(4),.alumni-table td:nth-child(4){display:none}
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
