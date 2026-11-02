@@ -43,7 +43,7 @@ c98,cps,y,2021,PRDC,main,,,conf,PRDC'21,Are you for Real? Authentication in Dyna
 c107,cps,y,2021,DSN,tier1,-26,12,conf,DSN'21,PID-Piper: Recovering Robotic Vehicles from Physical Attacks
 c108,ml,y,2021,DSN,tier1,-6,14,conf,DSN'21,A Low Cost Fault Corrector for Deep Neural Networks through Range Restriction
 c91,ml,y,2020,ISSRE,main,,,conf,ISSRE'20,TensorFI: A Flexible Fault Injection Framework for TensorFlow Applications
-c93,cloud,y,2020,ISSRE,main,,,conf,ISSRE'20,How Far Have We Come in Detecting Anomalies in Distributed Systems? An Empirical Study with a Statement-level Fault Injection Method
+c93,edge,y,2020,ISSRE,main,,,conf,ISSRE'20,How Far Have We Come in Detecting Anomalies in Distributed Systems? An Empirical Study with a Statement-level Fault Injection Method
 c89,hw,y,2020,SC,tier1,,,conf,SC'20,GPU-TRIDENT: Efficient Modeling of Error Propagation in GPU Programs
 c90,bc,y,2020,ISSTA,tier1,-30,12,conf,ISSTA'20,How Effective are Smart Contract Analysis Tools? Evaluating Smart Contract Static Analysis Tools Using Bug Injection
 c96,hw,y,2020,DSN,tier1,,,conf,DSN'20,Trace Sanitizer: Eliminating the Effects of Non-Determinism on Error Propagation Analysis
@@ -77,7 +77,7 @@ c54,web,y,2015,ECOOP,main,,,conf,ECOOP'15,Hybrid DOM-sensitive Change Impact Ana
 c55,hw,y,2015,DSN,tier1,,,conf,DSN'15,Fine-Grained Characterization of Faults Causing Long Latency Crashes in Programs
 c52,web,y,2015,ICSE,tier1,,,conf,ICSE'15,Detecting Inconsistencies in JavaScript MVC Applications
 c51,web,y,2015,ICST,main,,,conf,ICST'15,JSEFT: Automated JavaScript Unit Test Generation
-c35,cloud,y,2014,ISSRE,main,6,10,conf,ISSRE'14,Failure Analysis of Jobs in Compute Clouds: A Google Cluster Case Study
+c35,edge,y,2014,ISSRE,main,6,10,conf,ISSRE'14,Failure Analysis of Jobs in Compute Clouds: A Google Cluster Case Study
 c45,hw,y,2014,CASES,main,,,conf,CASES'14,SDCTune: A Model for Predicting the SDC Proneness of an Application for Configurable Protection
 c43,hw,y,2014,DSN,tier1,,,conf,DSN'14,Hardware-Software Integrated Diagnosis for Intermittent Hardware Faults
 c42,hw,y,2014,DSN,tier1,,,conf,DSN'14,Quantifying the Accuracy of High-Level Fault Injection Techniques for Hardware Faults
@@ -130,9 +130,9 @@ c15,web,y,2010,ISSRE,main,,,conf,ISSRE'10,DoDOM: Leveraging DOM Invariants for W
 ,hw,n,,,,,,journal,TC,SymPLFIED: Symbolic Program Level Fault Injection and Error Detection Framework
 ,hw,n,,,,,,journal,TDSC,Automated Derivation of Application-aware Error Detectors using Dynamic Analysis
 ,hw,n,,,,,,journal,TDSC,Automated Derivation of Application-aware Error Detectors using Static Analysis
-c158,cloud,y,2026,DSN-S,workshop,,,workshop,DSN'26 Industry,AIReSim: A Discrete Event Simulator for Large-scale AI Cluster Reliability Modeling
+c158,edge,y,2026,DSN-S,workshop,,,workshop,DSN'26 Industry,AIReSim: A Discrete Event Simulator for Large-scale AI Cluster Reliability Modeling
 c148,ml,y,2025,DSN-W,workshop,,,workshop,DSML@DSN'25,Learning from the Good Ones: Risk Profiling-Based Defenses Against Evasion Attacks on DNNs
-c149,cloud,y,2025,DSN-S,workshop,-36,10,workshop,DSN'25 Industry,"Large-Scale AI Infra Reliability: Challenges, Strategies, and Llama 3 Training Experience"
+c149,edge,y,2025,DSN-S,workshop,-34,-17,workshop,DSN'25 Industry,"Large-Scale AI Infra Reliability: Challenges, Strategies, and Llama 3 Training Experience"
 ,ml,n,,,,,,workshop,FiTML@NeurIPS'24,Hierarchical Unlearning Framework for Multi-Class Classification
 ,cps,n,,,,,,workshop,RICSS@CCS'24,Targeting the Blind Spot: Evaluating Modern ICS Security Against A Novel Denial of Service (DoS) Attack
 c134,ml,y,2024,HealthSec,workshop,,,workshop,HealthSec@CCS'24,SAM: Foreseeing Inference-Time False Data Injection Attacks on ML-enabled Medical Devices
@@ -166,11 +166,11 @@ c47,cps,y,2015,Middleware-DS,workshop,,,workshop,Middleware'15 DS,Intrusion Dete
 ,hw,n,,,,,,workshop,ISSRE'15 Industry,A Fault Injection Description Language (FIDL) for Compiler-based Tools
 c48,web,y,2015,ASE,workshop,,,workshop,ASE'15 Tools,LED: Tool for Synthesizing Web Element Locators
 c46,hw,y,2015,QRS,workshop,,,workshop,QRS'15,LLFI: An Intermediate Code Level Fault Injector for Hardware Faults
-c34,cloud,y,2014,ISSRE-W,workshop,,,workshop,RSDA@ISSRE'14,Failure Prediction of Jobs in Compute Clouds: A Google Cluster Case Study
+c34,edge,y,2014,ISSRE-W,workshop,,,workshop,RSDA@ISSRE'14,Failure Prediction of Jobs in Compute Clouds: A Google Cluster Case Study
 c36,hw,y,2014,ISSRE-W,workshop,,,workshop,ISSRE'14 Industry,Soft-LLFI: A Comprehensive Framework for Software Fault Injection
 c41,hw,y,2014,DSN,main,,,workshop,FTXS@DSN'14,Evaluating the Error Resilience of Parallel Programs
 ,hw,n,,,,,,workshop,AER@ICS'13,Effect of Compiler Optimizations on the Error Resilience of Soft Computing Applications
-c31,cloud,y,2013,DSN-W,workshop,,,workshop,RSDA@DSN'13,Predicting Job Completion Times Using System Logs in Supercomputing Clusters
+c31,edge,y,2013,DSN-W,workshop,,,workshop,RSDA@DSN'13,Predicting Job Completion Times Using System Logs in Supercomputing Clusters
 ,hw,n,,,,,,workshop,SELSE'13,LLFI: An Intermediate Code Level Injector for Soft Computing Applications
 ,hw,n,,,,,,workshop,SELSE'13,SCRIBE: A Hardware Infrastructure Enabling Fine-Grained Software Error Diagnosis
 ,hw,n,,,,,,workshop,WRA@MICRO'12,Towards Building Error Resilient GPGPU Applications

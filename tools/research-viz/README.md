@@ -11,11 +11,16 @@ tools/research-viz/
   papers.csv        one row per themed paper (the only file you normally edit)
   fonts/            DM Sans (SIL Open Font License, see OFL.txt), so the PNG matches the site
   requirements.txt
-  out/              generated research_evolution.png / .svg (git-ignored)
 ```
 
 The script assumes the pages live two folders up, i.e. at the repo root.
 If not, pass `--pages path/to/folder`.
+
+Each run also writes `research_evolution.svg` and `research_evolution.png`
+next to the pages (overwriting the previous ones), for use outside the
+page, e.g. slides or social media. The page itself carries its own inline
+copy of the chart and does not load these files. To put the images
+somewhere else, pass `--images path/to/folder`.
 
 ## One-time setup
 
@@ -41,7 +46,7 @@ pip install -r tools/research-viz/requirements.txt
 | column | meaning |
 |---|---|
 | `id` | Stable, unique id. Used for the anchor `#paper-<id>`, so don't change it once published. Needed only for chart papers. Any short text works for new papers, e.g. `n27-carve`. |
-| `theme` | `hw`, `web`, `cps`, `edge`, `ml`, `bc`, `cloud`, or `none` (deliberately no box, e.g. CSF'11). |
+| `theme` | `hw`, `web`, `cps`, `edge`, `ml`, `bc`, or `none` (deliberately no box, e.g. CSF'11). |
 | `chart` | `y` to draw a dot, `n` for list-only (journals, posters, pre-2010). |
 | `year` | Year on the chart's x-axis (chart rows only). |
 | `chart_venue` | Short venue used in chart labels and tooltips, e.g. `DSN`, `CCS`, `DSN-S`. |

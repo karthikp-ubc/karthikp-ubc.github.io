@@ -5,6 +5,8 @@ publications pages.
 Usage (from anywhere):
     python3 build.py                 # pages are two folders up (repo root)
     python3 build.py --pages PATH    # folder holding publications.html etc.
+    python3 build.py --images PATH   # where to write research_evolution.svg/.png
+                                     # (default: the pages folder)
     python3 build.py --check         # report only, change nothing
 
 papers.csv is the single source of truth. The script edits
@@ -14,7 +16,7 @@ markers (plus id / data-theme attributes and a colour box on paper rows), and
 it strips all of that before adding it again, so running it twice gives the
 same result.
 """
-import argparse, csv, difflib, html, math, re, sys
+import argparse, csv, difflib, html, math, re, shutil, sys, tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -25,10 +27,9 @@ THEMES = {
     "hw":    ("Resilience to hardware faults",         "#9c9c9c", False),
     "web":   ("Web application reliability",           "#c2c2c2", False),
     "cps":   ("CPS & embedded security",               "#d2652d", True),
-    "edge":  ("Edge computing",                        "#4f9a5e", True),
+    "edge":  ("Edge & cloud infrastructure",           "#4f9a5e", True),
     "ml":    ("ML reliability, security & privacy",    "#6b4fbb", True),
     "bc":    ("Smart contract & blockchain security",  "#b0457d", True),
-    "cloud": ("Cloud & AI-infrastructure reliability", "#2a8f8f", True),
 }
 CHART_START = 2010
 PAGES = ("publications.html", "selected-papers.html")
@@ -201,7 +202,7 @@ def draw_chart(papers, linked, outdir):
                      "Labels mark award-winning and landmark papers.",
             transform=ax.transAxes, fontsize=9.3, color="#555")
     plt.tight_layout()
-    outdir.mkdir(exist_ok=True)
+    outdir.mkdir(parents=True, exist_ok=True)
     plt.savefig(outdir / "research_evolution.png", bbox_inches="tight", metadata={"Software": None})
     plt.savefig(outdir / "research_evolution.svg", bbox_inches="tight", metadata={"Date": None, "Creator": None})
     plt.close(fig)
@@ -387,16 +388,19 @@ def report_unmatched(name, unmatched):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--pages", default=str(HERE.parent.parent), help="folder containing the HTML pages (default: repo root)")
+    ap.add_argument("--images", default=None, help="folder for research_evolution.svg/.png (default: same as --pages)")
     ap.add_argument("--check", action="store_true", help="report what would change without writing")
     args = ap.parse_args()
-    pages_dir = Path(args.pages)
+    pages_dir = Path(args.pages).resolve()
+    images_dir = Path(args.images).resolve() if args.images else pages_dir
+    tmp = Path(tempfile.mkdtemp(prefix="research-viz-"))
     papers = load_papers()
 
     # publications.html: anchors + boxes + chart + key
     pub_path = pages_dir / PAGES[0]
     pub = clean(pub_path.read_text(encoding="utf-8"))
     pub, linked, unmatched = match_rows(pub, papers, with_anchor=True)
-    svg_path, family, pts, last = draw_chart(papers, linked, HERE / "out")
+    svg_path, family, pts, last = draw_chart(papers, linked, tmp)
     svg = inline_svg(svg_path, family, pts, linked, last)
     pub = inject(pub, '  <div class="paper-tabs">', figure_block(svg) + theme_key())
     pub = pub.replace("</head>", CSS, 1).replace("<footer>", JS + "<footer>", 1)
@@ -424,12 +428,18 @@ def main():
         report_unmatched(PAGES[1], sel_unmatched)
 
     if args.check:
+        shutil.rmtree(tmp, ignore_errors=True)
         print("--check: nothing written.")
         return
     pub_path.write_text(pub, encoding="utf-8")
     if sel is not None:
         sel_path.write_text(sel, encoding="utf-8")
-    print(f"Updated pages in {pages_dir}; chart images in {HERE / 'out'}")
+    images_dir.mkdir(parents=True, exist_ok=True)
+    for name in ("research_evolution.svg", "research_evolution.png"):
+        shutil.copyfile(tmp / name, images_dir / name)
+    shutil.rmtree(tmp, ignore_errors=True)
+    print(f"Updated {pub_path}" + (f" and {sel_path}" if sel is not None else ""))
+    print(f"Wrote {images_dir / 'research_evolution.svg'} and {images_dir / 'research_evolution.png'}")
 
 
 if __name__ == "__main__":
