@@ -334,6 +334,13 @@ JS = r"""<!-- research-viz:begin script -->
   if (location.hash.indexOf('#paper-') === 0) {
     window.addEventListener('load', function () { revealPaper(location.hash.slice(1), false); });
   }
+  // links such as publications.html#theme=edge open the page already filtered
+  function filterFromHash() {
+    var m = location.hash.match(/^#theme=([a-z]+)$/);
+    if (m && document.querySelector('button.theme-chip[data-filter="' + m[1] + '"]')) applyFilter(m[1]);
+  }
+  filterFromHash();
+  window.addEventListener('hashchange', filterFromHash);
 })();
 </script>
 <!-- research-viz:end script -->
@@ -427,6 +434,22 @@ def main():
         print(f"{PAGES[1]}: " + ", ".join(f"{THEMES[k][0]} {n}" for k, n in counts.items() if n))
         report_unmatched(PAGES[1], sel_unmatched)
 
+    # index.html: keep the thrust colour squares in step with THEMES
+    home_path, home = pages_dir / "index.html", None
+    if home_path.exists():
+        before = home_path.read_text(encoding="utf-8")
+        def recolour(m):
+            k = m.group(2)
+            if k not in THEMES:
+                print(f"  index.html: unknown theme '{k}' on a colour square")
+                return m.group(0)
+            return re.sub(r"background:[^;\"]+", f"background:{THEMES[k][1]}", m.group(0))
+        home = re.sub(r'<span class="theme-box" (data-theme-box="([a-z]+)")[^>]*>', recolour, before)
+        print(f"index.html: {len(re.findall('data-theme-box=', home))} thrust colour square(s)"
+              + (" recoloured" if home != before else ", already up to date"))
+        if home == before:
+            home = None
+
     if args.check:
         shutil.rmtree(tmp, ignore_errors=True)
         print("--check: nothing written.")
@@ -434,6 +457,8 @@ def main():
     pub_path.write_text(pub, encoding="utf-8")
     if sel is not None:
         sel_path.write_text(sel, encoding="utf-8")
+    if home is not None:
+        home_path.write_text(home, encoding="utf-8")
     images_dir.mkdir(parents=True, exist_ok=True)
     for name in ("research_evolution.svg", "research_evolution.png"):
         shutil.copyfile(tmp / name, images_dir / name)

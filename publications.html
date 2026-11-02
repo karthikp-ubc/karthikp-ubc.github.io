@@ -2330,6 +2330,13 @@ function showPaperCat(cat) {
   if (location.hash.indexOf('#paper-') === 0) {
     window.addEventListener('load', function () { revealPaper(location.hash.slice(1), false); });
   }
+  // links such as publications.html#theme=edge open the page already filtered
+  function filterFromHash() {
+    var m = location.hash.match(/^#theme=([a-z]+)$/);
+    if (m && document.querySelector('button.theme-chip[data-filter="' + m[1] + '"]')) applyFilter(m[1]);
+  }
+  filterFromHash();
+  window.addEventListener('hashchange', filterFromHash);
 })();
 </script>
 <!-- research-viz:end script -->
