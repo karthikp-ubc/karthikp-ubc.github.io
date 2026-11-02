@@ -1,0 +1,191 @@
+id,theme,chart,year,chart_venue,size,label_dx,label_dy,section,page_venue,page_title
+c160,cps,y,2027,NDSS,tier1,-14,12,conf,NDSS'27,ICS-Sniper: A Targeted Blackhole Attack on Encrypted ICS Traffic
+c161,ml,y,2026,SC,tier1,,,conf,SC'26,The Anatomy of a Misprediction: Tracking Terrestrial and Orbital Radiation-Induced Errors in Systolic Arrays
+c152,ml,y,2026,SAFECOMP,main,,,conf,Safecomp'26,"The Statistical Assessment of Bayes-""sub""optimal Binary Machine Learning Classifier Risk"
+c151,cps,y,2026,VehicleSec,main,,,conf,VehicleSec'26,RVDebloater: Mode-based Adaptive Firmware Debloating for Robotic Vehicles
+c159,ml,y,2026,DSN,tier1,-2,13,conf,DSN'26,Thinking Inside the Box: Injecting Realistic Radiation Faults in ML Accelerators
+c155,bc,y,2026,DSN,tier1,,,conf,DSN'26,ReSect: A Tool for Automated Analysis of Reentrancy Transactions on Blockchains
+c162,edge,y,2026,Middleware,main,,,conf,Middleware'26,Requalizer: A Co-designed Information Flow Control and Quality of Service Management Framework
+c153,cps,y,2026,ICRA,main,,,conf,ICRA'26,ARMOR: Attack-Resilient Reinforcement Learning Control for UAVs
+c154,edge,y,2026,EuroSys,tier1,-38,12,conf,EuroSys'26,Turnstile: Hybrid Information Flow Control Framework for Managing Privacy in Internet-of-Things Applications
+c144,ml,y,2025,ISSRE,main,,,conf,ISSRE'25,DLAFI: Software-Based Fault Injection for Permanent Faults in Deep Learning Accelerators
+c150,ml,y,2025,CCS,tier1,-34,14,conf,CCS'25,Anonymity Unveiled: A Practical Framework for Auditing Data Use in Deep Learning Models
+c145,ml,y,2025,DSN,tier1,,,conf,DSN'25,ReMIX: Resilience for ML Ensembles using XAI at Inference against Faulty Training Data
+c147,cps,y,2025,DSN,tier1,,,conf,DSN'25,RAVAGE: Robotic Autonomous Vehicles' Attack Generation Engine
+c146,bc,y,2025,DSN,tier1,,,conf,DSN'25,Reentrancy Redux: The Evolution of Real-World Reentrancy Attacks on Blockchains
+c142,ml,y,2025,SAC,main,,,conf,SAC'25,D-semble: Efficient Diversity-Guided Search for Resilient ML Ensembles
+c143,ml,y,2025,NDSS,tier1,,,conf,NDSS'25,A Method to Facilitate Membership Inference Attacks in Deep Learning Models
+c138,cps,y,2024,CCS,tier1,,,conf,CCS'24,AutoPatch: Automated Generation of Hotpatches for Real-Time Embedded Devices
+c139,cps,y,2024,CCS,tier1,-6,12,conf,CCS'24,SpecGuard: Specification Aware Recovery for Robotic Autonomous Vehicles from Physical Attacks
+c130,bc,y,2024,S&P,tier1,-14,12,conf,IEEE S&P'24,POMABuster: Detecting Price Oracle Manipulation Attacks in Decentralized Finance
+c137,ml,y,2024,CHASE,main,,,conf,CHASE'24,Systematically Assessing the Security Risks of AI/ML-enabled Connected Healthcare Systems
+c133,edge,y,2024,IoTDI,main,,,conf,IoTDI'24,ImmunoPlane: Middleware for Providing Adaptivity to Distributed Internet-of-Things Applications
+c140,cps,y,2024,AsiaCCS,main,,,conf,AsiaCCS'24,Diagnosis-guided Attack Recovery for Securing Robotic Vehicles from Sensor Deception Attacks
+c131,ml,y,2024,NDSS,tier1,-34,13,conf,NDSS'24,Overconfidence is a Dangerous Thing: Mitigating Membership Inference Attacks by Enforcing Less Confident Prediction
+c123,edge,y,2023,SEC,main,,,conf,SEC'23,EdgeEngine: A Thermal-Aware Optimization Framework for Edge Inference
+c121,ml,y,2023,ISSRE,main,,,conf,ISSRE'23,Resilience Assessment of Large Language Models under Transient Hardware Faults
+c122,ml,y,2023,ISSRE,main,,,conf,ISSRE'23,Evaluating the Effect of Common Annotation Faults on Object Detection Techniques
+c119,ml,y,2023,SC,tier1,,,conf,SC'23,Structural Coding: A Low-Cost Scheme to Protect CNNs from Large-Granularity Memory Faults
+c120,ml,y,2023,SAFECOMP,main,,,conf,SafeComp'23,A Low-cost Strategic Monitoring Approach for Scalable and Interpretable Error Detection in Deep Neural Networks
+c126,cps,y,2023,DSN,tier1,,,conf,DSN'23,SwarmFuzz: Discovering GPS Spoofing Attacks in Drone Swarms
+c124,bc,y,2023,ICSE,tier1,-26,12,conf,ICSE'23,AChecker: Statically Detecting Smart Contract Access Control Vulnerabilities
+c129,ml,y,2023,AsiaCCS,main,,,conf,AsiaCCS'23,Jujutsu: A Two-stage Defense against Adversarial Patch Attacks on Deep Neural Networks
+c114,edge,y,2022,SEC,main,,,conf,SEC'22,Characterizing Variability in Heterogeneous Edge Systems: A Methodology & Case Study
+c111,ml,y,2022,ISSRE,main,,,conf,ISSRE'22,LLTFI: Framework Agnostic Fault Injection for Machine Learning Applications
+c110,bc,y,2022,ISSTA,tier1,,,conf,ISSTA'22,eTainter: Detecting Gas-Related Vulnerabilities in Smart Contracts
+c115,ml,y,2022,DSN,tier1,,,conf,DSN'22,The Fault in Our Data Stars: Studying Mitigation Techniques against Faulty Training Data in Machine Learning Applications
+c112,edge,y,2022,IoTDI,main,,,conf,IoTDI'22,π-Configurator: Enabling Efficient Configuration of Pipelined Applications on the Edge
+c109,bc,y,2022,SANER,main,,,conf,SANER'22,When They Go Low: Automated Replacement of Low-level Functions in Ethereum Smart Contracts
+c97,ml,y,2021,QRS,main,-30,-17,conf,QRS'21,Understanding the Resilience of Neural Network Ensembles against Faulty Training Data
+c102,edge,y,2021,SEC,main,-24,12,conf,SEC'21,OneOS: Middleware for Running Edge Computing Applications as Distributed POSIX Pipelines
+c103,edge,y,2021,SEC,main,,,conf,SEC'21,MIRAGE: Machine Learning-based Modeling of Identical Replicas of the Jetson AGX Embedded Platform
+c98,cps,y,2021,PRDC,main,,,conf,PRDC'21,Are you for Real? Authentication in Dynamic IoT Systems
+c107,cps,y,2021,DSN,tier1,-26,12,conf,DSN'21,PID-Piper: Recovering Robotic Vehicles from Physical Attacks
+c108,ml,y,2021,DSN,tier1,-6,14,conf,DSN'21,A Low Cost Fault Corrector for Deep Neural Networks through Range Restriction
+c91,ml,y,2020,ISSRE,main,,,conf,ISSRE'20,TensorFI: A Flexible Fault Injection Framework for TensorFlow Applications
+c93,cloud,y,2020,ISSRE,main,,,conf,ISSRE'20,How Far Have We Come in Detecting Anomalies in Distributed Systems? An Empirical Study with a Statement-level Fault Injection Method
+c89,hw,y,2020,SC,tier1,,,conf,SC'20,GPU-TRIDENT: Efficient Modeling of Error Propagation in GPU Programs
+c90,bc,y,2020,ISSTA,tier1,-30,12,conf,ISSTA'20,How Effective are Smart Contract Analysis Tools? Evaluating Smart Contract Static Analysis Tools Using Bug Injection
+c96,hw,y,2020,DSN,tier1,,,conf,DSN'20,Trace Sanitizer: Eliminating the Effects of Non-Determinism on Error Propagation Analysis
+c88,cps,y,2019,ACSAC,main,-4,12,conf,ACSAC'19,Out of Control: Stealthy Attacks on Robotic Vehicles Protected by Control-Based Techniques
+c84,hw,y,2019,ISSRE,main,,,conf,ISSRE'19,A Tale of Two Injectors: End-to-End Comparison of IR-level and Assembly-level Fault Injection
+c82,ml,y,2019,SC,tier1,,,conf,SC'19,BinFI: An Efficient Fault Injector for Safety-Critical Machine Learning Systems
+c85,hw,y,2019,ICS,tier1,,,conf,ICS'19,BonVoision: Leveraging Spatial Data Smoothness for Recovery from Memory Soft Errors
+c83,edge,y,2019,SAC,main,,,conf,SAC'19,Failure Prediction in the Internet of Things due to Memory Exhaustion
+c72,cps,y,2018,PRDC,main,,,conf,PRDC'18,DynPolAC: Dynamic Policy-based Access Control for IoT Systems
+c77,edge,y,2018,ECOOP,main,,,conf,ECOOP'18,ThingsMigrate: Platform-Independent Migration of Stateful JavaScript IoT Applications
+c80,hw,y,2018,DSN,tier1,6,10,conf,DSN'18,Modeling Soft-Error Propagation in Programs
+c78,hw,y,2018,DSN,tier1,,,conf,DSN'18,Modeling Input-Dependent Error Propagation in Programs
+c74,web,y,2018,ICSE,tier1,,,conf,ICSE'18,Inferring Hierarchical Motifs from Execution Traces
+c68,web,y,2017,ASE,tier1,,,conf,ASE'17,Detecting Unknown Inconsistencies in Web Applications
+c65,ml,y,2017,SC,tier1,-26,12,conf,SC'17,Understanding Error Propagation in Deep Learning Neural Network (DNN) Accelerators and Applications
+c64,cps,y,2017,FSE,tier1,-16,12,conf,FSE'17,ARTINALI: Dynamic Invariant Detection for Cyber-Physical System Security
+c70,hw,y,2017,HPDC,tier1,,,conf,HPDC'17,LetGo: A Lightweight Continuous Framework for HPC Applications Under Failures
+c71,hw,y,2017,DSN,tier1,,,conf,DSN'17,One Bit is (Not) Enough: An Empirical Study of the Impact of Single and Multiple Bit-Flip Errors
+c69,hw,y,2017,ICST,main,,,conf,ICST'17,IPA: Error Propagation Analysis of Multi-threaded Programs Using Likely Invariants
+c63,cps,y,2016,ACSAC,main,-30,12,conf,ACSAC'16,Formal Security Analysis of Smart Embedded Systems
+c56,hw,y,2016,SC,tier1,,,conf,SC'16,Understanding Error Propagation in GPGPU Applications
+c60,hw,y,2016,EDCC,main,-4,16,conf,EDCC'16,Finding Resilience-Friendly Compiler Optimizations Using Meta-Heuristic Search Techniques
+c57,hw,y,2016,SAFECOMP,main,,,conf,SafeComp'16,FIDL: A Fault Injection Description Language for Compiler-Based SFI Tools
+c61,hw,y,2016,DSN,tier1,,,conf,DSN'16,ePVF: An Enhanced Program Vulnerability Factor Methodology for Cross-Layer Resilience Analysis
+c58,web,y,2016,ICST,main,,,conf,ICST'16,Atrina: Inferring Unit Oracles from GUI Test Cases
+c59,web,y,2016,ICSE,tier1,,,conf,ICSE'16,Understanding Asynchronous Interactions in Full-Stack JavaScript
+c50,hw,y,2015,ISSRE,main,,,conf,ISSRE'15,Experience Report: An Application-specific Checkpointing Technique for Minimizing Checkpoint Corruption
+c49,web,y,2015,ASE,tier1,,,conf,ASE'15,Synthesizing Web Element Locators
+c53,cps,y,2015,EDCC,main,,,conf,EDCC'15,Flexible Intrusion Detection Systems for Memory-Constrained Embedded Systems
+c54,web,y,2015,ECOOP,main,,,conf,ECOOP'15,Hybrid DOM-sensitive Change Impact Analysis for JavaScript
+c55,hw,y,2015,DSN,tier1,,,conf,DSN'15,Fine-Grained Characterization of Faults Causing Long Latency Crashes in Programs
+c52,web,y,2015,ICSE,tier1,,,conf,ICSE'15,Detecting Inconsistencies in JavaScript MVC Applications
+c51,web,y,2015,ICST,main,,,conf,ICST'15,JSEFT: Automated JavaScript Unit Test Generation
+c35,cloud,y,2014,ISSRE,main,6,10,conf,ISSRE'14,Failure Analysis of Jobs in Compute Clouds: A Google Cluster Case Study
+c45,hw,y,2014,CASES,main,,,conf,CASES'14,SDCTune: A Model for Predicting the SDC Proneness of an Application for Configurable Protection
+c43,hw,y,2014,DSN,tier1,,,conf,DSN'14,Hardware-Software Integrated Diagnosis for Intermittent Hardware Faults
+c42,hw,y,2014,DSN,tier1,,,conf,DSN'14,Quantifying the Accuracy of High-Level Fault Injection Techniques for Hardware Faults
+c38,web,y,2014,ICSE,tier1,6,10,conf,ICSE'14,Vejovis: Suggesting Fixes for JavaScript Faults
+c39,web,y,2014,ICSE,tier1,,,conf,ICSE'14,Understanding JavaScript Event-Based Interactions
+c33,web,y,2014,ASE,tier1,,,conf,ASE'14,Dompletion: DOM-Aware JavaScript Code Completion
+c32,web,y,2014,MSR,main,,,conf,MSR'14,Mining Questions Asked by Web Developers
+c37,hw,y,2014,ISPASS,main,,,conf,ISPASS'14,GPU-Qin: A Methodology for Evaluating the Error Resilience of GPGPU Applications
+c40,cps,y,2014,HASE,main,,,conf,HASE'14,A Model-based Intrusion Detection System for Smart Meters
+c27,web,y,2013,ASE,main,,,conf,ASE'13,PYTHIA: Generating Test Cases with Oracles for JavaScript Applications
+c29,web,y,2013,ESEM,main,,,conf,ESEM'13,An Empirical Study of Client-Side JavaScript Bugs
+c30,hw,y,2013,DSN,tier1,,,conf,DSN'13,Error Detector Placement for Soft Computation
+c28,web,y,2013,ICST,main,-10,12,conf,ICST'13,Efficient JavaScript Mutation Testing
+c23,hw,y,2012,QEST,main,,,conf,QEST'12,Intermittent Hardware Errors Recovery: Modeling and Evaluation
+c25,hw,y,2012,DSN,tier1,6,10,conf,DSN'12,BLOCKWATCH: Leveraging Similarity in Parallel Programs for Error Detection
+c24,web,y,2012,ICST,main,,,conf,ICST'12,AutoFlox: An Automatic Fault Localizer For JavaScript
+c17,web,y,2011,ISSRE,main,6,10,conf,ISSRE'11,JavaScript Errors in the Wild: An Empirical Study
+c20,hw,y,2011,ASPLOS,tier1,-8,12,conf,ASPLOS'11,Flikker: Saving DRAM Refresh-power through Critical Data Partitioning
+c14,hw,y,2010,PRDC,main,,,conf,PRDC'10,Modeling the Propagation of Intermittent Hardware Faults in Programs
+c15,web,y,2010,ISSRE,main,,,conf,ISSRE'10,DoDOM: Leveraging DOM Invariants for Web 2.0 Application Robustness Testing
+,hw,n,,,,,,conf,DSN'09,An End-to-end Approach for the Automatic Derivation of Application-aware Error Detectors
+,hw,n,,,,,,conf,DSN'08,SymPLFIED: Symbolic Program Level Fault-Injection and Error Detection Framework
+,hw,n,,,,,,conf,IOLTS'07,Automated Derivation of Application-Aware Error Detectors using Static Analysis
+,hw,n,,,,,,conf,DSN'07,Processor-level Selective Replication
+,hw,n,,,,,,conf,EDCC'06,Dynamic Derivation of Application-Specific Error Detectors and their Implementation in Hardware
+,hw,n,,,,,,conf,PRDC'05,Application-Based Metrics for Strategic Placement of Detectors
+,hw,n,,,,,,conf,DSN'05,Modeling Coordinated Checkpointing for Large-Scale Supercomputers
+,cps,n,,,,,,journal,TDSC,Feed-Forward Controller-Based Recovery for Robotic Vehicles from Physical Attacks
+,ml,n,,,,,,journal,IEEE D&T,A Low-cost Fault Corrector for Deep Neural Networks through Range Restriction
+,edge,n,,,,,,journal,TPDS,OneOS: Distributed Operating System for the Edge-to-Cloud Continuum
+,ml,n,,,,,,journal,IEEE D&T,Understanding Error Propagation in Deep-Learning Neural Networks Accelerators and Applications
+,edge,n,,,,,,journal,TECS,Co-Approximator: Enabling Performance Prediction in Colocated Applications
+,ml,n,,,,,,journal,TCPS,Characterizing and Improving Resilience of Accelerators to Memory Errors in Autonomous Robots
+,hw,n,,,,,,journal,JPDC,Mixed Precision Support in HPC Applications: What About Reliability?
+,bc,n,,,,,,journal,SPE,A Large-scale Empirical Study of Low-level Function Use in Ethereum Smart Contracts and Automated Replacement
+,ml,n,,,,,,journal,TDSC,Fault Injection for TensorFlow Applications
+,edge,n,,,,,,journal,SPE,ThingsMigrate: Platform Independent Migration of Stateful JavaScript Applications
+,hw,n,,,,,,journal,TDSC,An Empirical Study of the Impact of Single and Multiple Bit-Flip Errors in Programs
+,cps,n,,,,,,journal,DTRAP,Stealthy Attacks Against Robotic Vehicles Protected by Control-Based Intrusion Detection Techniques
+,hw,n,,,,,,journal,TDSC,Improving the accuracy of IR-level Fault Injection
+,cps,n,,,,,,journal,TECS,Design-level and Code-level Security Analysis of IoT Devices
+,hw,n,,,,,,journal,TECS,Configurable Detection of SDC-Causing Errors in Programs
+,web,n,,,,,,journal,TSE,A Study of Causes and Consequences of Client-Side JavaScript Bugs
+,hw,n,,,,,,journal,TPDS,A Systematic Methodology for Evaluating the Error Resilience of GPGPU Applications
+,web,n,,,,,,journal,TOSEM,Understanding JavaScript Event-based Interactions with Clematis
+,hw,n,,,,,,journal,TECS,Error Detector Placement for Soft Computing Applications
+,web,n,,,,,,journal,STVR,Automatic Fault Localization for Client-Side JavaScript
+,web,n,,,,,,journal,TSE,Guided Mutation Testing for JavaScript Web Applications
+,hw,n,,,,,,journal,TR,Characterizing the Impact of Intermittent Hardware Faults on Programs
+,hw,n,,,,,,journal,TC,SymPLFIED: Symbolic Program Level Fault Injection and Error Detection Framework
+,hw,n,,,,,,journal,TDSC,Automated Derivation of Application-aware Error Detectors using Dynamic Analysis
+,hw,n,,,,,,journal,TDSC,Automated Derivation of Application-aware Error Detectors using Static Analysis
+c158,cloud,y,2026,DSN-S,workshop,,,workshop,DSN'26 Industry,AIReSim: A Discrete Event Simulator for Large-scale AI Cluster Reliability Modeling
+c148,ml,y,2025,DSN-W,workshop,,,workshop,DSML@DSN'25,Learning from the Good Ones: Risk Profiling-Based Defenses Against Evasion Attacks on DNNs
+c149,cloud,y,2025,DSN-S,workshop,-36,10,workshop,DSN'25 Industry,"Large-Scale AI Infra Reliability: Challenges, Strategies, and Llama 3 Training Experience"
+,ml,n,,,,,,workshop,FiTML@NeurIPS'24,Hierarchical Unlearning Framework for Multi-Class Classification
+,cps,n,,,,,,workshop,RICSS@CCS'24,Targeting the Blind Spot: Evaluating Modern ICS Security Against A Novel Denial of Service (DoS) Attack
+c134,ml,y,2024,HealthSec,workshop,,,workshop,HealthSec@CCS'24,SAM: Foreseeing Inference-Time False Data Injection Attacks on ML-enabled Medical Devices
+c141,ml,y,2024,AISafety,workshop,,,workshop,AISafety@IJCAI'24,Global Clipper: Enhancing Safety and Reliability of Transformer-based Object Detection Models
+c136,ml,y,2024,DSN-S,workshop,,,workshop,DSN'24 Disrupt,Harnessing Explainability to Improve ML Ensemble Resilience
+c125,edge,y,2023,EdgeSys,workshop,-8,12,workshop,EdgeSys@EuroSys'23,"Hot Under the Hood: An Analysis of Ambient Temperature Impact on Heterogeneous Edge Platforms, Best Paper Award"
+c127,ml,y,2023,DSN-S,workshop,,,workshop,SELSE'23,Towards Reliability Assessment of Systolic Arrays against Stuck-at Faults
+,cps,n,,,,,,workshop,CCS'22 Poster,May the Swarm Be With You: Sensor Spoofing Attacks Against Drone Swarms
+,cps,n,,,,,,workshop,CCS'22 Poster,AutoPatch: Automatic Hotpatching of Real-Time Embedded Devices
+,edge,n,,,,,,workshop,SEC'22 Poster,EdgeShell: A language for composing edge applications
+c116,ml,y,2022,DSN-W,workshop,,,workshop,DSML@DSN'22,Towards Building Resilient Ensembles against Training Data Faults
+,cps,n,,,,,,workshop,AutoSec@NDSS'22,Demo: Recovering Autonomous Robotic Vehicles from Physical Attacks
+,edge,n,,,,,,workshop,SEC'21 Demo,"OneOS: Middleware for Running Edge Computing Applications as Distributed POSIX Pipelines, Best Demo Award"
+c99,ml,y,2021,ISSRE-W,workshop,,,workshop,WoSoCER@ISSRE'21,(WiP) LLTFI: Low-Level Tensor Fault Injector
+c100,ml,y,2021,AISafety,workshop,,,workshop,AISafety@IJCAI'21,Towards a Safety Case for Hardware Fault Tolerance in Convolutional Neural Networks Using Activation Range Supervision
+c105,edge,y,2021,EdgeSys,workshop,,,workshop,EdgeSys@EuroSys'21,Snowflakes at the Edge: A Study of Variability among NVIDIA Jetson AGX Xavier Boards
+c104,ml,y,2021,DeepTest,workshop,,,workshop,DeepTest@ICSE'21,TF-DM: Tool for Studying ML Model Resilience to Data Faults
+,cps,n,,,,,,workshop,AutoSec@NDSS'21,Demo: Impact of Stealthy Attacks on Autonomous Robotic Vehicle Missions
+c92,ml,y,2020,ISSRE-W,workshop,,,workshop,WoSoCER@ISSRE'20,New Wine in an Old Bottle: N-Version Programming for Machine Learning Components
+c87,hw,y,2019,DSN-S,workshop,,,workshop,DSN'19 Fast Abstract,Towards Predicting the Impact of Roll-Forward Failure Recovery for HPC Applications
+c86,edge,y,2019,HotEdge,workshop,,,workshop,HotEdge'19,OneOS: IoT Platform based on POSIX and Actors
+,hw,n,,,,,,workshop,SELSE'19,Towards analytically evaluating the error resilience of GPU Programs
+,edge,n,,,,,,workshop,SEC'18 Poster,ThingsJS: Towards a Distributed and Self-Adaptable Cloud-Edge Middleware
+,edge,n,,,,,,workshop,SEC'18 Demo,ThingsMigrate: Platform-Independent Live-Migration of JavaScript Processes
+c81,cps,y,2018,CPS-SPC,workshop,,,workshop,CPS-SPC@CCS'18,CORGIDS: A Correlation-based Generic Intrusion Detection System
+c73,ml,y,2018,ISSRE-W,workshop,,,workshop,WoSoCER@ISSRE'18,TensorFI: A Configurable Fault Injector for TensorFlow Applications
+c66,edge,y,2017,SPLASH,workshop,,,workshop,SPLASH'17 Poster,SmartJS: Dynamic and Self-Adaptable Runtime Middleware for Next-Generation IoT Systems
+c67,edge,y,2017,M4IoT,workshop,,,workshop,M4IoT@Middleware'17,ThingsJS: Towards a Flexible and Self-Adaptable Middleware for Dynamic and Heterogeneous IoT Environments
+c62,hw,y,2016,DSN-W,workshop,,,workshop,RSDA@DSN'16,SDC is in the Eye of the Beholder: A Survey and Preliminary Study
+c47,cps,y,2015,Middleware-DS,workshop,,,workshop,Middleware'15 DS,Intrusion Detection Systems for Embedded Systems
+,hw,n,,,,,,workshop,ISSRE'15 Industry,A Fault Injection Description Language (FIDL) for Compiler-based Tools
+c48,web,y,2015,ASE,workshop,,,workshop,ASE'15 Tools,LED: Tool for Synthesizing Web Element Locators
+c46,hw,y,2015,QRS,workshop,,,workshop,QRS'15,LLFI: An Intermediate Code Level Fault Injector for Hardware Faults
+c34,cloud,y,2014,ISSRE-W,workshop,,,workshop,RSDA@ISSRE'14,Failure Prediction of Jobs in Compute Clouds: A Google Cluster Case Study
+c36,hw,y,2014,ISSRE-W,workshop,,,workshop,ISSRE'14 Industry,Soft-LLFI: A Comprehensive Framework for Software Fault Injection
+c41,hw,y,2014,DSN,main,,,workshop,FTXS@DSN'14,Evaluating the Error Resilience of Parallel Programs
+,hw,n,,,,,,workshop,AER@ICS'13,Effect of Compiler Optimizations on the Error Resilience of Soft Computing Applications
+c31,cloud,y,2013,DSN-W,workshop,,,workshop,RSDA@DSN'13,Predicting Job Completion Times Using System Logs in Supercomputing Clusters
+,hw,n,,,,,,workshop,SELSE'13,LLFI: An Intermediate Code Level Injector for Soft Computing Applications
+,hw,n,,,,,,workshop,SELSE'13,SCRIBE: A Hardware Infrastructure Enabling Fine-Grained Software Error Diagnosis
+,hw,n,,,,,,workshop,WRA@MICRO'12,Towards Building Error Resilient GPGPU Applications
+c26,cps,y,2012,DSN-W,workshop,,,workshop,WRAITS@DSN'12,A Model for Security Analysis of Smart Meters
+,hw,n,,,,,,workshop,SELSE'12,DIEBA: Diagnosing Intermittent Errors by Backtracing Application Failures
+,hw,n,,,,,,workshop,SELSE'12,BlockWatch: Leveraging Similarity in Parallel Programs for Error Detection
+c18,hw,y,2011,DSN-W,workshop,,,workshop,WDSN@DSN'11,Comparing the Effects of Intermittent and Transient Hardware Faults on Programs
+c16,hw,y,2010,DSN-W,workshop,,,workshop,WDSN@DSN'10,Towards Understanding the Effects of Intermittent Hardware Faults on Programs
+,hw,n,,,,,,workshop,SELSE'10,Formal Diagnosis of Hardware Transient Errors in Programs
+,hw,n,,,,,,workshop,SELSE'07,Critical Variable Recomputation for Transient Error Detection
+,hw,n,,,,,,workshop,WDSN@DSN'07,FPGA Hardware Implementation of Statically Derived Application-aware Error Detectors
+,hw,n,,,,,,workshop,SELSE'06,Processor-level Selective Replication
+,hw,n,,,,,,workshop,HPCRI@HPCA'05,Automated Derivation and Hardware Implementation of Application-Specific Error Detectors
+c94,ml,y,2020,IOLTS,workshop,,,invited,IOLTS'20,Error Resilient Machine Learning for Safety Critical Systems: Position Paper
+c44,hw,y,2014,DATE,main,,,invited,DATE'14,GPUs: Combining high-performance with high-reliability
+c128,cps,y,2023,DSN-S,workshop,,,,,Beyond Detection: Securing Robotic Vehicles
+c156,ml,y,2026,DSN-S,workshop,,,,,Does the Knight and Leveson Hypothesis Hold for LLM-Based Code Generation?
+,none,n,,,,,,conf,CSF'11,Modular Protections Against Non-Control Data Attacks
