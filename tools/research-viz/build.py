@@ -434,19 +434,23 @@ def main():
         print(f"{PAGES[1]}: " + ", ".join(f"{THEMES[k][0]} {n}" for k, n in counts.items() if n))
         report_unmatched(PAGES[1], sel_unmatched)
 
-    # index.html: keep the thrust colour squares in step with THEMES
+    # index.html: keep the colour squares (data-theme-box), tool-card stripes
+    # (data-theme-card) and thrust labels (data-theme-label) in step with THEMES
     home_path, home = pages_dir / "index.html", None
     if home_path.exists():
         before = home_path.read_text(encoding="utf-8")
         def recolour(m):
-            k = m.group(2)
+            k = m.group(1)
             if k not in THEMES:
-                print(f"  index.html: unknown theme '{k}' on a colour square")
+                print(f"  index.html: unknown theme '{k}' on a colour mark")
                 return m.group(0)
-            return re.sub(r"background:[^;\"]+", f"background:{THEMES[k][1]}", m.group(0))
-        home = re.sub(r'<span class="theme-box" (data-theme-box="([a-z]+)")[^>]*>', recolour, before)
-        print(f"index.html: {len(re.findall('data-theme-box=', home))} thrust colour square(s)"
-              + (" recoloured" if home != before else ", already up to date"))
+            c = THEMES[k][1]
+            tag = re.sub(r"background:[^;\"]+", f"background:{c}", m.group(0))
+            tag = re.sub(r"(?<![\w-])color:#[0-9a-fA-F]{3,6}", f"color:{c}", tag)
+            return re.sub(r"(inset \d+px 0 0 )#[0-9a-fA-F]{3,6}", rf"\g<1>{c}", tag)
+        home = re.sub(r'<[a-z0-9]+ [^>]*data-theme-(?:box|card|label)="([a-z]+)"[^>]*>', recolour, before)
+        n = len(re.findall(r"data-theme-(?:box|card|label)=", home))
+        print(f"index.html: {n} colour mark(s)" + (" recoloured" if home != before else ", already up to date"))
         if home == before:
             home = None
 

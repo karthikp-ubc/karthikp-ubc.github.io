@@ -10,6 +10,10 @@
 <link href="./publications_files/css2" rel="stylesheet">
 <link rel="stylesheet" href="./publications_files/style.css">
 <style>
+#software .tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#software .tool-card{padding-left:1.4rem}
+#software .tool-thrust{display:block;margin-top:.45rem;font-family:var(--sans);font-size:.72rem;font-weight:600}
+@media (max-width:600px){#software .tools-grid{grid-template-columns:1fr}}
 .news-list{list-style:none;margin:0;padding:0}
 .news-list li{margin:0 0 .85rem;line-height:1.5}
 .news-list .news-head{font-weight:600}
@@ -107,10 +111,10 @@
 <section id="software">
   <h2 class="section-title">Open-Source Tools</h2>
   <div class="tools-grid">
-    <div class="tool-card"><h4><a href="https://github.com/DependableSystemsLab/Ranger">Ranger</a></h4><p>Low-cost fault corrector for DNNs via range restriction. Adopted in Intel OpenVINO.</p></div>
-    <div class="tool-card"><h4><a href="https://github.com/DependableSystemsLab/LLTFI">LLTFI</a></h4><p>Framework-agnostic fault injection for ML applications at the LLVM IR level.</p></div>
-    <div class="tool-card"><h4><a href="https://github.com/DependableSystemsLab/OneOS">OneOS</a></h4><p>Distributed operating system for seamless edge-to-cloud computing.</p></div>
-    <div class="tool-card"><h4><a href="https://github.com/DependableSystemsLab/RAVAGE">RAVAGE</a></h4><p>Attack generation engine for discovering physical attacks against robotic autonomous vehicles.</p></div>
+    <div class="tool-card" data-theme-card="ml" style="box-shadow:inset 4px 0 0 #6b4fbb"><h4><a href="https://github.com/DependableSystemsLab/Ranger">Ranger</a></h4><p>Low-cost fault corrector for DNNs via range restriction. Adopted in Intel OpenVINO.</p><span class="tool-thrust" data-theme-label="ml" style="color:#6b4fbb">ML Reliability, Security &amp; Privacy</span></div>
+    <div class="tool-card" data-theme-card="ml" style="box-shadow:inset 4px 0 0 #6b4fbb"><h4><a href="https://github.com/DependableSystemsLab/LLTFI">LLTFI</a></h4><p>Framework-agnostic fault injection for ML applications at the LLVM IR level.</p><span class="tool-thrust" data-theme-label="ml" style="color:#6b4fbb">ML Reliability, Security &amp; Privacy</span></div>
+    <div class="tool-card" data-theme-card="edge" style="box-shadow:inset 4px 0 0 #4f9a5e"><h4><a href="https://github.com/DependableSystemsLab/OneOS">OneOS</a></h4><p>Distributed operating system for seamless edge-to-cloud computing.</p><span class="tool-thrust" data-theme-label="edge" style="color:#4f9a5e">Edge &amp; Cloud Infrastructure</span></div>
+    <div class="tool-card" data-theme-card="cps" style="box-shadow:inset 4px 0 0 #d2652d"><h4><a href="https://github.com/DependableSystemsLab/RAVAGE">RAVAGE</a></h4><p>Attack generation engine for discovering physical attacks against robotic autonomous vehicles.</p><span class="tool-thrust" data-theme-label="cps" style="color:#d2652d">CPS &amp; Embedded Security</span></div>
   </div>
   <p style="margin-top:.75rem;font-size:.82rem;color:var(--muted);"><a href="https://blogs.ubc.ca/dependablesystemslab/software/">All software &rarr;</a></p>
 </section>

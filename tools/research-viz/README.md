@@ -65,9 +65,12 @@ Edit the `THEMES` table at the top of `build.py`. Each theme has a label,
 a colour, and whether it's current (coloured) or earlier work (grey). The
 order there is the top-to-bottom order of rows in the chart.
 
-The homepage (`index.html`) shows a colour square before each thrust
-heading, marked `data-theme-box="<theme>"`. The build re-colours these
-from `THEMES` on every run, so colours stay in step. The thrust names
+The homepage (`index.html`) uses theme colours in three places, each
+marked with the theme key: the square before each thrust heading and news
+item (`data-theme-box`), the stripe on each tool card (`data-theme-card`),
+and the thrust label on each tool card (`data-theme-label`). The build
+re-colours all of these from `THEMES` on every run, so colours stay in step.
+When you add a tool or news item, copy an existing one and change the key. The thrust names
 and the "See all papers in this thrust" links (`publications.html#theme=<theme>`)
 on the homepage are plain HTML; if you rename or add a theme, update them by hand.
 
