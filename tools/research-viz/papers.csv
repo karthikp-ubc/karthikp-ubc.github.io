@@ -10,7 +10,7 @@ c153,cps,y,2026,ICRA,main,,,conf,ICRA'26,ARMOR: Attack-Resilient Reinforcement L
 c154,edge,y,2026,EuroSys,tier1,-38,12,conf,EuroSys'26,Turnstile: Hybrid Information Flow Control Framework for Managing Privacy in Internet-of-Things Applications
 c144,ml,y,2025,ISSRE,main,,,conf,ISSRE'25,DLAFI: Software-Based Fault Injection for Permanent Faults in Deep Learning Accelerators
 c150,ml,y,2025,CCS,tier1,-34,14,conf,CCS'25,Anonymity Unveiled: A Practical Framework for Auditing Data Use in Deep Learning Models
-c145,ml,y,2025,DSN,tier1,,,conf,DSN'25,ReMIX: Resilience for ML Ensembles using XAI at Inference against Faulty Training Data
+c145,ml,y,2025,DSN,tier1,,,conf,DSN'25,ReMlX: Resilience for ML Ensembles using XAI at Inference against Faulty Training Data
 c147,cps,y,2025,DSN,tier1,,,conf,DSN'25,RAVAGE: Robotic Autonomous Vehicles' Attack Generation Engine
 c146,bc,y,2025,DSN,tier1,,,conf,DSN'25,Reentrancy Redux: The Evolution of Real-World Reentrancy Attacks on Blockchains
 c142,ml,y,2025,SAC,main,,,conf,SAC'25,D-semble: Efficient Diversity-Guided Search for Resilient ML Ensembles

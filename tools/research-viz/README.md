@@ -78,6 +78,16 @@ the posts where it found no abstract. **Do not commit the XML file**: it
 can contain account details and commenters' emails and IP addresses.
 `*.xml` is git-ignored in this folder, but keep the export outside the repo.
 
+## Link previews
+
+Each page has preview tags in its `<head>` (description, `og:*`,
+`twitter:card`) so shared links show a title, a description and an image.
+The publications pages use `og-chart.png`, which the build regenerates
+from the chart on every run. The other pages use `og-home.png` (your photo
+and the four thrusts), which is a fixed image: if you rename a thrust,
+remake it. The image URLs point to karthikp-ubc.github.io, so they also
+work if you copy the pages to another server.
+
 ## Changing themes or colours
 
 Edit the `THEMES` table at the top of `build.py`. Each theme has a label,

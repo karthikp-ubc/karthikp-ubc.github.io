@@ -284,6 +284,19 @@ def draw_chart(papers, linked, outdir):
     return outdir / "research_evolution.svg", family, pts, last
 
 
+def social_card(png_path, out_path, size=(1200, 630)):
+    """Fit the chart onto a 1200x630 white card for link previews (LinkedIn, Slack, etc.)."""
+    from PIL import Image
+    W, H = size
+    chart = Image.open(png_path).convert("RGB")
+    pad = 36
+    scale = min((W - 2 * pad) / chart.width, (H - 2 * pad) / chart.height)
+    chart = chart.resize((round(chart.width * scale), round(chart.height * scale)), Image.LANCZOS)
+    card = Image.new("RGB", (W, H), "white")
+    card.paste(chart, ((W - chart.width) // 2, (H - chart.height) // 2))
+    card.save(out_path, optimize=True)
+
+
 def inline_svg(svg_path, family, pts, linked, last):
     svg = svg_path.read_text(encoding="utf-8")
     svg = svg[svg.index("<svg"):]
@@ -563,9 +576,10 @@ def main():
     images_dir.mkdir(parents=True, exist_ok=True)
     for name in ("research_evolution.svg", "research_evolution.png"):
         shutil.copyfile(tmp / name, images_dir / name)
+    social_card(images_dir / "research_evolution.png", images_dir / "og-chart.png")
     shutil.rmtree(tmp, ignore_errors=True)
     print(f"Updated {pub_path}" + (f" and {sel_path}" if sel is not None else ""))
-    print(f"Wrote {images_dir / 'research_evolution.svg'} and {images_dir / 'research_evolution.png'}")
+    print(f"Wrote research_evolution.svg, research_evolution.png and og-chart.png (link preview) in {images_dir}")
 
 
 if __name__ == "__main__":
