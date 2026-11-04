@@ -144,7 +144,7 @@ def match_rows(page, papers, with_anchor):
 ABSTRACTS = HERE / "abstracts.json"
 _ABS_START = re.compile(r"(?:<(?:strong|b|em|h\d)[^>]*>\s*)?Abstract\s*(?:</(?:strong|b|em|h\d)>)?\s*[:.\-–]?"
                         r"\s*(?:</(?:strong|b|em|h\d)>)?\s*[:.\-–]?", re.I)
-_ABS_STOP = re.compile(r"^\s*\*|blogs referencing|news article|^\s*here is\b|supercede|superced|super-ceded|^\s*\[|"
+_ABS_STOP = re.compile(r"^\s*[*+\u2020]|blogs referencing|news article|^\s*here is\b|supercede|superced|super-ceded|^\s*\[|"
                        r"^\s*(code|talk|slides|artifact|video|news|media|github)\b|^\s*\(|press release|award", re.I)
 
 
