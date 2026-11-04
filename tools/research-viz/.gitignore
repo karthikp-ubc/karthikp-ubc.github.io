@@ -1,1 +1,3 @@
 __pycache__/
+# WordPress exports contain private data; never commit them
+*.xml

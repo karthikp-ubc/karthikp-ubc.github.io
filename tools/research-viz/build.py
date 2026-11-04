@@ -8,6 +8,8 @@ Usage (from anywhere):
     python3 build.py --images PATH   # where to write research_evolution.svg/.png
                                      # (default: the pages folder)
     python3 build.py --check         # report only, change nothing
+    python3 build.py --wordpress EXPORT.xml   # refresh abstracts.json from a
+                                              # WordPress export, then build
 
 papers.csv is the single source of truth. The script edits
 publications.html and selected-papers.html in place. Everything it adds sits
@@ -16,7 +18,7 @@ markers (plus id / data-theme attributes and a colour box on paper rows), and
 it strips all of that before adding it again, so running it twice gives the
 same result.
 """
-import argparse, csv, difflib, html, math, re, shutil, sys, tempfile
+import argparse, csv, difflib, html, json, math, re, shutil, sys, tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -76,6 +78,8 @@ def clean(page):
     page = re.sub(r'<span class="theme-box"[^>]*></span>', "", page)
     page = re.sub(r'<tr id="paper-[^"]*"', "<tr", page)
     page = re.sub(r'<tr data-theme="[^"]*"', "<tr", page)
+    page = re.sub(r' ?<button type="button" class="abs-toggle"[^>]*>.*?</button>', "", page)
+    page = re.sub(r'<div class="abs"[^>]*>.*?</div>', "", page, flags=re.S)
     if legacy:  # the first hand-off left extra blank lines around its blocks
         page = re.sub(r"\n[ \t]*\n(?:[ \t]*\n)+", "\n\n", page)
     return page
@@ -132,6 +136,77 @@ def match_rows(page, papers, with_anchor):
                 p["_count"] = p.get("_count", 0) + 1
         out.append(line)
     return "\n".join(out), matched, unmatched
+
+
+# --------------------------------------------------------------------------
+# Abstracts: imported once from a WordPress export, stored in abstracts.json
+# (slug -> list of paragraphs). Only the abstract text is kept.
+ABSTRACTS = HERE / "abstracts.json"
+_ABS_START = re.compile(r"(?:<(?:strong|b|em|h\d)[^>]*>\s*)?Abstract\s*(?:</(?:strong|b|em|h\d)>)?\s*[:.\-–]?"
+                        r"\s*(?:</(?:strong|b|em|h\d)>)?\s*[:.\-–]?", re.I)
+_ABS_STOP = re.compile(r"^\s*\*|blogs referencing|news article|^\s*here is\b|supercede|superced|super-ceded|^\s*\[|"
+                       r"^\s*(code|talk|slides|artifact|video|news|media|github)\b|^\s*\(|press release|award", re.I)
+
+
+def post_slug(url):
+    m = re.search(r"/\d{4}/\d{2}/\d{2}/([^/?#]+)/?(?:[?#].*)?$", url or "")
+    return m.group(1) if m else None
+
+
+def import_wordpress(xml_path):
+    import xml.etree.ElementTree as ET
+    ns = {"wp": "http://wordpress.org/export/1.2/", "content": "http://purl.org/rss/1.0/modules/content/"}
+    out, skipped = {}, []
+    for it in ET.parse(xml_path).getroot().findall("./channel/item"):
+        if it.findtext("wp:post_type", namespaces=ns) != "post" or it.findtext("wp:status", namespaces=ns) != "publish":
+            continue
+        slug = post_slug(it.findtext("link")) or it.findtext("wp:post_name", namespaces=ns)
+        body = (it.findtext("content:encoded", namespaces=ns) or "").replace("<!--more-->", "\n\n")
+        m = _ABS_START.search(body)
+        paras = []
+        if m:
+            for chunk in re.split(r"\n\s*\n|</p>\s*<p[^>]*>", body[m.end():]):
+                text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", chunk))).strip()
+                text = re.sub(r"\\(?:textit|textbf|emph|texttt)\{([^{}]*)\}", r"\1", text)  # LaTeX left in posts
+                if not text:
+                    if paras:
+                        break
+                    continue
+                if paras and (_ABS_STOP.search(text) or re.match(r"\s*<(strong|b)\b", chunk.strip(), re.I)):
+                    break
+                paras.append(text)
+                if sum(map(len, paras)) > 2500:
+                    break
+        if slug and len(" ".join(paras)) >= 150:
+            out[slug] = paras
+        else:
+            skipped.append(html.unescape(it.findtext("title") or slug or "?"))
+    ABSTRACTS.write_text(json.dumps(dict(sorted(out.items())), indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Imported {len(out)} abstracts into {ABSTRACTS.name}; {len(skipped)} post(s) had no abstract we could find:")
+    for t in skipped:
+        print(f"    {t[:90]}")
+
+
+def load_abstracts():
+    return json.loads(ABSTRACTS.read_text(encoding="utf-8")) if ABSTRACTS.exists() else {}
+
+
+def add_abstracts(page, abstracts):
+    """Add an 'Abstract' toggle to every row whose title links to a blog post we have an abstract for."""
+    if not abstracts:
+        return page, 0
+    out, n = [], 0
+    for line in page.split("\n"):
+        m = re.match(r'\s*<tr[^>]*><td class="venue-cell">.*?</td><td>\s*<a href="([^"]+)"', line)
+        slug = post_slug(m.group(1)) if m and "blogs.ubc.ca" in m.group(1) else None
+        end = line.rfind("</td>")
+        if slug in abstracts and end != -1:
+            n += 1
+            body = "".join(f"<p>{html.escape(t, quote=False)}</p>" for t in abstracts[slug])
+            line = (line[:end] + ' <button type="button" class="abs-toggle" aria-expanded="false">Abstract</button>'
+                    f'<div class="abs" hidden>{body}</div>' + line[end:])
+        out.append(line)
+    return "\n".join(out), n
 
 
 # --------------------------------------------------------------------------
@@ -255,6 +330,13 @@ CSS = """<!-- research-viz:begin styles -->
   .theme-filter-status button { font: inherit; background: none; border: 0; color: inherit; text-decoration: underline; cursor: pointer; padding: 0; }
   .papers-table tr.theme-hidden { display: none; }
   .theme-empty { font-size: .85rem; color: #777; margin: .5rem 0 1rem; }
+  .abs-toggle { font: inherit; font-size: .75rem; color: var(--accent, #2b5c8a); background: none; border: 1px solid currentColor; border-radius: 999px; padding: 0 .5rem; margin-left: .4rem; cursor: pointer; vertical-align: .05em; opacity: .85; }
+  .abs-toggle:hover { opacity: 1; }
+  .abs-toggle::after { content: " \\25B8"; }
+  .abs-toggle[aria-expanded="true"]::after { content: " \\25BE"; }
+  .papers-table .abs { margin: .5rem 0 .3rem; padding: .6rem .8rem; border-left: 3px solid #ddd; background: #fafafa; font-size: .85rem; line-height: 1.55; color: #333; max-width: 52rem; }
+  .papers-table tr:has(.abs:not([hidden])) td.venue-cell { vertical-align: top; }
+  .papers-table .abs p { margin: 0 0 .5rem; } .papers-table .abs p:last-child { margin-bottom: 0; }
   @media (max-width: 760px) {
     .research-evolution .re-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .research-evolution .re-svg { min-width: 760px; }
@@ -331,6 +413,13 @@ JS = r"""<!-- research-viz:begin script -->
       if (href.charAt(0) === '#' && revealPaper(href.slice(1), true)) e.preventDefault();
     });
   });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.abs-toggle');
+    if (!b) return;
+    var box = b.nextElementSibling, open = b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (box) box.hidden = !open;
+  });
   if (location.hash.indexOf('#paper-') === 0) {
     window.addEventListener('load', function () { revealPaper(location.hash.slice(1), false); });
   }
@@ -397,21 +486,28 @@ def main():
     ap.add_argument("--pages", default=str(HERE.parent.parent), help="folder containing the HTML pages (default: repo root)")
     ap.add_argument("--images", default=None, help="folder for research_evolution.svg/.png (default: same as --pages)")
     ap.add_argument("--check", action="store_true", help="report what would change without writing")
+    ap.add_argument("--wordpress", metavar="EXPORT.xml", help="import abstracts from a WordPress export into abstracts.json, then build")
     args = ap.parse_args()
+    if args.wordpress:
+        if args.check:
+            sys.exit("--wordpress writes abstracts.json, so it can't be combined with --check")
+        import_wordpress(args.wordpress)
     pages_dir = Path(args.pages).resolve()
     images_dir = Path(args.images).resolve() if args.images else pages_dir
     tmp = Path(tempfile.mkdtemp(prefix="research-viz-"))
     papers = load_papers()
+    abstracts = load_abstracts()
 
     # publications.html: anchors + boxes + chart + key
     pub_path = pages_dir / PAGES[0]
     pub = clean(pub_path.read_text(encoding="utf-8"))
     pub, linked, unmatched = match_rows(pub, papers, with_anchor=True)
+    pub, n_abs = add_abstracts(pub, abstracts)
     svg_path, family, pts, last = draw_chart(papers, linked, tmp)
     svg = inline_svg(svg_path, family, pts, linked, last)
     pub = inject(pub, '  <div class="paper-tabs">', figure_block(svg) + theme_key())
     pub = pub.replace("</head>", CSS, 1).replace("<footer>", JS + "<footer>", 1)
-    print(f"{PAGES[0]}: {len(pts)} papers in the chart, {len(linked)} linked to the list")
+    print(f"{PAGES[0]}: {len(pts)} papers in the chart, {len(linked)} linked to the list, {n_abs} abstracts")
     missing = [p for p in pts if p["id"] not in linked]
     if missing:
         print(f"  {len(missing)} chart paper(s) not found on the page (shown without a link): "
@@ -426,12 +522,13 @@ def main():
             p["_count"] = 0
         sel = clean(sel_path.read_text(encoding="utf-8"))
         sel, _, sel_unmatched = match_rows(sel, papers, with_anchor=False)
+        sel, sel_abs = add_abstracts(sel, abstracts)
         counts = {}
         for p in papers:
             counts[p["theme"]] = counts.get(p["theme"], 0) + p.get("_count", 0)
         sel = inject(sel, '  <table class="papers-table">', theme_key(counts, only_present=True))
         sel = sel.replace("</head>", CSS, 1).replace("<footer>", JS + "<footer>", 1)
-        print(f"{PAGES[1]}: " + ", ".join(f"{THEMES[k][0]} {n}" for k, n in counts.items() if n))
+        print(f"{PAGES[1]}: " + ", ".join(f"{THEMES[k][0]} {n}" for k, n in counts.items() if n) + f"; {sel_abs} abstracts")
         report_unmatched(PAGES[1], sel_unmatched)
 
     # index.html: keep the colour squares (data-theme-box), tool-card stripes

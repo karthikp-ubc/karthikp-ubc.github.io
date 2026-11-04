@@ -59,6 +59,25 @@ pip install -r tools/research-viz/requirements.txt
 Matching uses `page_venue` + `page_title`, so if you rename a paper on the
 page, update the CSV row too (the build will warn you if it can't match).
 
+## Abstracts
+
+Papers whose title links to a post on the lab blog get an **Abstract**
+button that opens the abstract under the paper. The abstracts live in
+`abstracts.json` (post slug -> paragraphs), which is committed.
+
+To refresh them, export the blog from WordPress (Tools > Export > Posts),
+then run:
+
+```
+python3 tools/research-viz/build.py --wordpress path/to/export.xml
+```
+
+The build reads the export, keeps only the abstract text of each published
+post (the paragraphs after "Abstract"), and rebuilds the pages. It lists
+the posts where it found no abstract. **Do not commit the XML file**: it
+can contain account details and commenters' emails and IP addresses.
+`*.xml` is git-ignored in this folder, but keep the export outside the repo.
+
 ## Changing themes or colours
 
 Edit the `THEMES` table at the top of `build.py`. Each theme has a label,
